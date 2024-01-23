@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Disclaimer"
+                android:text="@string/text_disclaimer"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="4dp"
-                android:text="This project utilizes a mock API and dummy data for sentiment analysis. The sentiments expressed in the provided sentences are generated artificially and do not represent real opinions or experiences. The results of sentiment analysis may vary for each word or sentence and should not be considered as actual user feedback. This implementation is solely for demonstration purposes."
+                android:text="@string/sentiment_disclaimer"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:hint="Type Something">
+                android:hint="@string/type_something">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtFreeText"
@@ -67,7 +67,7 @@
                 android:paddingBottom="8dp"
                 android:visibility="gone"
                 android:enabled="false"
-                android:text="Check" />
+                android:text="" />
 
             <ProgressBar
                 android:id="@+id/pbLoading"

@@ -8,11 +8,15 @@ import com.tiooooo.myproduct.data.ProductRepository
 import com.tiooooo.myproduct.model.ProductReview
 import com.tiooooo.myproduct.pages.widget.bottom_sheet_filter_radio_button.model.DropdownItem
 import com.tiooooo.myproduct.utils.States
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ListProductReviewViewModel : ViewModel() {
-    private val productRepository = ProductRepository()
+@HiltViewModel
+class ListProductReviewViewModel @Inject constructor(
+    private val productRepository: ProductRepository
+) : ViewModel() {
 
     private val _productReview = MutableLiveData<States<List<ProductReview>>>()
     val productReview: LiveData<States<List<ProductReview>>> = _productReview
@@ -43,6 +47,4 @@ class ListProductReviewViewModel : ViewModel() {
         DropdownItem(2, "ProductB", "ProductB"),
         DropdownItem(3, "ProductC", "ProductC"),
     )
-
-
 }

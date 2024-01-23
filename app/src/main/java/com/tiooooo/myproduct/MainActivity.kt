@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.tiooooo.myproduct.databinding.ActivityMainBinding
+import com.tiooooo.myproduct.pages.data_class_utilization.DataClassUtilizationActivity
 import com.tiooooo.myproduct.pages.list_product_review.ListProductReviewActivity
 import com.tiooooo.myproduct.pages.sentiment_analysis.SentimentAnalysisActivity
 
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
             btnProblem1.setOnClickListener {
-
+                startActivity(Intent(this@MainActivity, DataClassUtilizationActivity::class.java))
             }
 
             btnProblem2.setOnClickListener {

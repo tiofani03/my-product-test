@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:text="Disclaimer"
+        android:text="@string/text_disclaimer"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="4dp"
-        android:text="This project utilizes a mock API and dummy data for. This implementation is solely for demonstration purposes."
+        android:text="@string/main_disclaimer"
         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
     <com.google.android.material.button.MaterialButton
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:text="Problem 1" />
+        android:text="@string/problem_1" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnProblem2"
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:text="Problem 2" />
+        android:text="@string/problem_2" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnProblem3"
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:text="Problem 3" />
+        android:text="@string/problem_3" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

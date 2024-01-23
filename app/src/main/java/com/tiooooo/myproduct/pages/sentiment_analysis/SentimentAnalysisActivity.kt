@@ -8,10 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.tiooooo.myproduct.databinding.ActivitySentimentAnalysisBinding
-import com.tiooooo.myproduct.utils.States
 import com.tiooooo.myproduct.utils.handleStates
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class SentimentAnalysisActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySentimentAnalysisBinding
     private val viewModel: SentimentAnalysisViewModel by viewModels()

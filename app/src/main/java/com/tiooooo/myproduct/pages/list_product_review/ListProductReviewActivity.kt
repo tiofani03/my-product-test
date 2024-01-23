@@ -10,7 +10,9 @@ import com.tiooooo.myproduct.pages.widget.bottom_sheet_filter_radio_button.Radio
 import com.tiooooo.myproduct.pages.widget.bottom_sheet_filter_radio_button.model.DropdownItem
 import com.tiooooo.myproduct.utils.States
 import com.tiooooo.myproduct.utils.handleStates
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ListProductReviewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityListProductReviewBinding
     private val viewModel: ListProductReviewViewModel by viewModels()
@@ -60,7 +62,8 @@ class ListProductReviewActivity : AppCompatActivity() {
                     supportFragmentManager, filterBySortBottomSheet.tag
                 )
                 filterBySortBottomSheet.onFilterClick = {
-                    text = it.title
+                    val textTitle = if (it.id == 0) "Sort By" else it.title
+                    text = textTitle
                     selectedSortFilter = it
                     it.slug?.let {
                         getProductReview()
@@ -77,7 +80,8 @@ class ListProductReviewActivity : AppCompatActivity() {
                     supportFragmentManager, filterByProductBottomSheet.tag
                 )
                 filterByProductBottomSheet.onFilterClick = {
-                    text = it.title
+                    val textTitle = if (it.id == 0) "Choose Product" else it.title
+                    text = textTitle
                     selectedByProduct = it
                     it.slug?.let {
                         getProductReview()

@@ -50,7 +50,7 @@
                         android:ellipsize="end"
                         android:maxLines="1"
                         android:padding="16dp"
-                        android:text="Choose Product" />
+                        android:text="@string/text_choose_product" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tvFilterByRating"
@@ -63,7 +63,7 @@
                         android:ellipsize="end"
                         android:maxLines="1"
                         android:padding="16dp"
-                        android:text="Sort By" />
+                        android:text="@string/text_sort_by" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 

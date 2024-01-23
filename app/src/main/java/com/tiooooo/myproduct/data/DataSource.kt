@@ -1,5 +1,6 @@
 package com.tiooooo.myproduct.data
 
+import com.tiooooo.myproduct.model.Order
 import com.tiooooo.myproduct.model.ProductReview
 import java.math.BigDecimal
 import java.math.RoundingMode
@@ -32,12 +33,50 @@ object SentimentAnalysis {
 }
 
 object OptimizePacking {
-    fun optimizePackaging(productNames: List<String>, quantity: Map<String, Int>): String {
-        return if (productNames.size > 3) {
+    fun optimizePackaging(quantity: Map<String, Int>): String {
+        return if (quantity.size < 3) {
             "Standard Packaging"
         } else {
             "Custom Packaging"
         }
+    }
+
+    fun generateDummyOrder(count: Int = 10): List<Order> {
+        val orders = mutableListOf<Order>()
+        for (i in 1..count) {
+            val order = when (i % 3) {
+                0 -> Order(
+                    generateUniqueID(),
+                    listOf("Laptop", "Mouse", "Keyboard"),
+                    mapOf(
+                        "Laptop" to generateRandomInt(),
+                        "Mouse" to generateRandomInt(),
+                        "Keyboard" to generateRandomInt()
+                    ),
+                    generateRandomName(),
+                    generateAddress(),
+                )
+
+                1 -> Order(
+                    generateUniqueID(),
+                    listOf("Monitor", "Headphones"),
+                    mapOf("Monitor" to generateRandomInt(), "Headphones" to generateRandomInt()),
+                    generateRandomName(),
+                    generateAddress(),
+                )
+
+                else -> Order(
+                    generateUniqueID(),
+                    listOf("Tablet", "Charger"),
+                    mapOf("Tablet" to generateRandomInt(), "Charger" to generateRandomInt()),
+                    generateRandomName(),
+                    generateAddress(),
+                )
+            }
+            orders.add(order)
+        }
+
+        return orders
     }
 }
 
@@ -107,4 +146,81 @@ private val commentsMap = mapOf(
     )
 )
 
-fun generateDummyLoading(): Long = (1000L..3000L).random()
+fun generateDummyLoading(max: Long = 3000L): Long = (0L..max).random()
+
+fun generateRandomInt(max: Int = 10) = (1..max).random()
+
+fun generateUniqueID(): String {
+    val characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    val idLength = 7
+    val random = java.util.Random()
+
+    val id = StringBuilder(idLength)
+    repeat(idLength) {
+        id.append(characters[random.nextInt(characters.length)])
+    }
+
+    return id.toString()
+}
+
+fun generateRandomName(): String {
+    val firstNameList =
+        listOf("Tio", "Andi", "Budi", "Citra", "Dewi", "Eko", "Fitri", "Gunawan", "Hendra", "Ika")
+    val lastNameList =
+        listOf(
+            "Fani",
+            "Saputra",
+            "Susilo",
+            "Wijaya",
+            "Kusuma",
+            "Hadi",
+            "Sari",
+            "Wibowo",
+            "Nugroho",
+            "Setiawan"
+        )
+
+
+    val random = java.util.Random()
+
+    val firstName = firstNameList[random.nextInt(firstNameList.size)]
+    val lastName = lastNameList[random.nextInt(lastNameList.size)]
+
+    return "$firstName $lastName"
+}
+
+fun generateRandomString(length: Int): String {
+    val characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 ,.-"
+    val random = java.util.Random()
+
+    val randomString = StringBuilder(length)
+    repeat(length) {
+        randomString.append(characters[random.nextInt(characters.length)])
+    }
+
+    return randomString.toString()
+}
+
+fun generateAddress(): String {
+    val streetList =
+        listOf("Jalan Utama", "Jalan Raya", "Jalan Merdeka", "Jalan Pahlawan", "Jalan Bersama")
+    val cityList = listOf("Jakarta", "Surabaya", "Bandung", "Medan", "Semarang", "Yogyakarta")
+    val provinceList = listOf(
+        "DKI Jakarta",
+        "Jawa Timur",
+        "Jawa Barat",
+        "Sumatera Utara",
+        "Central Java",
+        "DI Yogyakarta"
+    )
+    val postalCodeList = listOf("10110", "60284", "40121", "20219", "50123")
+
+    val random = java.util.Random()
+
+    val street = streetList[random.nextInt(streetList.size)]
+    val city = cityList[random.nextInt(cityList.size)]
+    val province = provinceList[random.nextInt(provinceList.size)]
+    val postalCode = postalCodeList[random.nextInt(postalCodeList.size)]
+
+    return "$street, $city, $province $postalCode"
+}

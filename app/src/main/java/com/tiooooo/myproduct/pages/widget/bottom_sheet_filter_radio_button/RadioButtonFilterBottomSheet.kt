@@ -33,13 +33,11 @@ class RadioButtonFilterBottomSheet : BottomSheetDialogFragment() {
         }
     }
 
-    /** BUNDLE DATA **/
     private var title: String = ""
     private var filterList: ArrayList<DropdownItem> = arrayListOf()
     private var selectedFilter: DropdownItem? = null
 
-    /** PROPERTIES **/
-    private lateinit var viewBinding: BottomSheetFilterRadioButtonBinding
+    private lateinit var binding: BottomSheetFilterRadioButtonBinding
     var onFilterClick: ((filter: DropdownItem) -> Unit)? = null
     private val filterAdapter by lazy { RadioButtonFilterAdapter(filterList, selectedFilter) }
 
@@ -69,12 +67,12 @@ class RadioButtonFilterBottomSheet : BottomSheetDialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
     ): View {
-        viewBinding = BottomSheetFilterRadioButtonBinding.inflate(inflater, container, false)
-        return viewBinding.root
+        binding = BottomSheetFilterRadioButtonBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     private fun initView() {
-        with(viewBinding) {
+        with(binding) {
             ivClose.setOnClickListener { dismiss() }
             tvTitle.text = title
 

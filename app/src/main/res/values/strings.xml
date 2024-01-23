@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">MyProduct</string>
+    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
+    <string name="text_total">Total</string>
+    <string name="text_show_suggestions">Show Suggestions</string>
+    <string name="text_choose_product">Choose Product</string>
+    <string name="text_sort_by">Sort By</string>
+    <string name="text_disclaimer">Disclaimer</string>
+    <string name="main_disclaimer">This project utilizes a mock API and dummy data. This implementation is solely for demonstration purposes.</string>
+    <string name="problem_1">Problem 1</string>
+    <string name="problem_2">Problem 2</string>
+    <string name="problem_3">Problem 3</string>
+    <string name="sentiment_disclaimer">This project utilizes a mock API and dummy data for sentiment analysis. The sentiments expressed in the provided sentences are generated artificially and do not represent real opinions or experiences. The results of sentiment analysis may vary for each word or sentence and should not be considered as actual user feedback. This implementation is solely for demonstration purposes.</string>
+    <string name="type_something">Type Something</string>
+    <string name="result_suggestions">Result Suggestions</string>
+    <string name="product_summary">Product Summary</string>
 </resources>
