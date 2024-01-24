@@ -23,6 +23,8 @@ Incorporating Espresso for UI testing, this application ensures the seamless fun
 
 The image above showcases the integration of Espresso into the testing suite, highlighting its role in validating the UI components. This approach enhances the overall quality of the application, confirming that the user interface behaves as expected under various scenarios.
 
+https://github.com/tiofani03/my-product-test/assets/43690617/fc601266-fd1d-45fe-890e-03fff7e46ea3
+
 
 ### Contribution
 We welcome contributions from the developer community. If you would like to contribute to this project, please open a new issue or submit a pull request.
