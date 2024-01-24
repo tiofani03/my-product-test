@@ -3,6 +3,7 @@ package com.tiooooo.myproduct.data
 import com.tiooooo.myproduct.model.Order
 import com.tiooooo.myproduct.model.ProductReview
 import com.tiooooo.myproduct.utils.States
+import com.tiooooo.myproduct.utils.wrapEspressoIdlingResource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -17,17 +18,19 @@ class ProductRepositoryImpl : ProductRepository {
     private val orderList = OptimizePacking.generateDummyOrder(generateRandomInt(15))
     override suspend fun analyzeCustomerFeedback(text: String): Flow<States<String>> {
         return flow {
-            try {
-                //dummy loading
-                emit(States.Loading)
-                delay(generateDummyLoading())
+            wrapEspressoIdlingResource {
+                try {
+                    //dummy loading
+                    emit(States.Loading)
+                    delay(generateDummyLoading())
 
-                //dummy get data from api
-                val res = sentimentAnalysisApi.generateDummySentimentAnalysis(text)
-                emit(States.Success(res))
+                    //dummy get data from api
+                    val res = sentimentAnalysisApi.generateDummySentimentAnalysis(text)
+                    emit(States.Success(res))
 
-            } catch (e: Exception) {
-                emit(States.Error(e.message.toString()))
+                } catch (e: Exception) {
+                    emit(States.Error(e.message.toString()))
+                }
             }
         }.flowOn(Dispatchers.IO)
     }
@@ -37,59 +40,65 @@ class ProductRepositoryImpl : ProductRepository {
         sortByRating: String?,
     ): Flow<States<List<ProductReview>>> {
         return flow {
-            try {
-                //dummy loading
-                emit(States.Loading)
-                delay(generateDummyLoading())
+            wrapEspressoIdlingResource {
+                try {
+                    //dummy loading
+                    emit(States.Loading)
+                    delay(generateDummyLoading())
 
-                //dummy get data from api
-                var res = reviewApi
+                    //dummy get data from api
+                    var res = reviewApi
 
-                // filter with name
-                if (!filterByName.isNullOrBlank()) {
-                    res = res.filter { it.name == filterByName }
+                    // filter with name
+                    if (!filterByName.isNullOrBlank()) {
+                        res = res.filter { it.name == filterByName }
+                    }
+
+                    // filter by rating
+                    if (sortByRating == "asc") {
+                        res = res.sortedBy { it.rating }
+                    } else if (sortByRating == "desc") {
+                        res = res.sortedByDescending { it.rating }
+                    }
+
+                    emit(States.Success(res))
+
+                } catch (e: Exception) {
+                    emit(States.Error(e.message.toString()))
                 }
-
-                // filter by rating
-                if (sortByRating == "asc") {
-                    res = res.sortedBy { it.rating }
-                } else if (sortByRating == "desc") {
-                    res = res.sortedByDescending { it.rating }
-                }
-
-                emit(States.Success(res))
-
-            } catch (e: Exception) {
-                emit(States.Error(e.message.toString()))
             }
         }.flowOn(Dispatchers.IO)
     }
 
     override suspend fun suggestPackagingStrategy(orders: List<Order>): Flow<States<Map<String, String>>> =
         flow<States<Map<String, String>>> {
-            try {
-                emit(States.Loading)
-                delay(generateDummyLoading(1000L))
-                val suggestedStrategies = mutableMapOf<String, String>()
-                for (order in orders) {
-                    val packagingStrategy =
-                        optimizePackaging.optimizePackaging(order.quantity)
-                    suggestedStrategies[order.orderId] = packagingStrategy
+            wrapEspressoIdlingResource {
+                try {
+                    emit(States.Loading)
+                    delay(generateDummyLoading(1000L))
+                    val suggestedStrategies = mutableMapOf<String, String>()
+                    for (order in orders) {
+                        val packagingStrategy =
+                            optimizePackaging.optimizePackaging(order.quantity)
+                        suggestedStrategies[order.orderId] = packagingStrategy
+                    }
+                    emit(States.Success(suggestedStrategies))
+                } catch (e: Exception) {
+                    emit(States.Error(e.message.toString()))
                 }
-                emit(States.Success(suggestedStrategies))
-            } catch (e: Exception) {
-                emit(States.Error(e.message.toString()))
             }
         }.flowOn(Dispatchers.IO)
 
 
     override suspend fun getOrderList() = flow {
-        try {
-            emit(States.Loading)
-            delay(generateDummyLoading(1000L))
-            emit(States.Success(orderList))
-        } catch (e: Exception) {
-            emit(States.Error(e.message.toString()))
+        wrapEspressoIdlingResource {
+            try {
+                emit(States.Loading)
+                delay(generateDummyLoading(1000L))
+                emit(States.Success(orderList))
+            } catch (e: Exception) {
+                emit(States.Error(e.message.toString()))
+            }
         }
     }.flowOn(Dispatchers.IO)
 }
