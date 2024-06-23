@@ -84,7 +84,7 @@ dependencies {
     //TestCoroutineDispatcher
     debugImplementation("androidx.fragment:fragment-testing:1.4.1") //launchFragmentInContainer
 
-    //dagger
+    //dagger hilt
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-android-compiler:2.48")
 }

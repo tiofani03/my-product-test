@@ -14,6 +14,12 @@
         android:theme="@style/Theme.MyProduct"
         tools:targetApi="31">
         <activity
+            android:name=".pages.notes.NoteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pages.todo.TodoActivity"
+            android:exported="false" />
+        <activity
             android:name=".pages.data_class_utilization.DataClassUtilizationActivity"
             android:exported="false" />
         <activity
