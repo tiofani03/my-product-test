@@ -10,7 +10,9 @@ on:
         type: string
         required: true
         default: 'Manual Debug Build'
-        description: 'Release Notes'
+        description: |
+          Release Notes
+          Enter release notes here. Use multiple lines if needed.
 jobs:
   build:
     name: Building and distributing app
