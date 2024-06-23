@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "606795088667",
+    "firebase_url": "https://datacorp-c1147.firebaseio.com",
+    "project_id": "datacorp-c1147",
+    "storage_bucket": "datacorp-c1147.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606795088667:android:0894352cc32e212b5f09be",
+        "android_client_info": {
+          "package_name": "com.tiooooo.datatemp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606795088667-s5umto7q7sb498740fqcqgkvmlrd7oiu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkrHITYiqs5UMUdW9q1-wodQXsf7HMD0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606795088667-s5umto7q7sb498740fqcqgkvmlrd7oiu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606795088667:android:af7c500948bb33855f09be",
+        "android_client_info": {
+          "package_name": "com.tiooooo.myproduct"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606795088667-s5umto7q7sb498740fqcqgkvmlrd7oiu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkrHITYiqs5UMUdW9q1-wodQXsf7HMD0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606795088667-s5umto7q7sb498740fqcqgkvmlrd7oiu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
