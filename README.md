@@ -1,5 +1,7 @@
 ![image](https://github.com/tiofani03/my-product-test/assets/43690617/f87a9025-8161-404c-8678-b3e264301624)
 
+#dummy test edit
+
 # MyProduct
 A simple application based on the provided case study.
 
